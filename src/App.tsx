@@ -19,9 +19,7 @@ const App = () => (
       <BrowserRouter basename="/Qromo_website">
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
+          
         </Routes>
       </BrowserRouter>
 
