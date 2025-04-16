@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowUp } from "lucide-react";
+import qromo_logo from "../../public/uploads/aacec3ea-3a6b-463b-a7a5-db75c2a93788.png"
 
 interface FooterProps {
   isLanguageFrench: boolean;
@@ -28,7 +29,7 @@ const Footer = ({ isLanguageFrench, translations }: FooterProps) => {
             <div className="flex items-center space-x-2 mb-4 sm:mb-6 group cursor-pointer" onClick={scrollToTop}>
               <img
                 alt="Qromo Logo"
-                src="/lovable-uploads/7841b287-0d27-42b2-ae04-c2d1b7bd1c08.png"
+                src={qromo_logo}
                 className="h-10 object-contain transition-transform duration-300 group-hover:scale-110"
               />
               <span className="text-xl font-bold text-[#10B981]">Qromo</span>
