@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Globe, Menu, X } from "lucide-react";
-
+import qromo_logo from "../../public/uploads/aacec3ea-3a6b-463b-a7a5-db75c2a93788.png"
 interface NavBarProps {
   isLanguageFrench: boolean;
   setIsLanguageFrench: (value: boolean) => void;
@@ -43,7 +43,7 @@ const NavBar = ({
       <div className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 group">
-            <img src="/lovable-uploads/aacec3ea-3a6b-463b-a7a5-db75c2a93788.png" alt="Qromo Logo" className="h-8 transition-transform duration-300 group-hover:scale-110" />
+            <img src={qromo_logo} alt="Qromo Logo" className="h-8 transition-transform duration-300 group-hover:scale-110" />
             <span className="text-xl font-bold text-[#10B981] flex items-center">
               Qromo
             </span>
