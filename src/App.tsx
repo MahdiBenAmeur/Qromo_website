@@ -16,7 +16,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/Qromo_website">
+      <BrowserRouter >
         <Routes>
           <Route path="/" element={<Index />} />
           

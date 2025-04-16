@@ -1,5 +1,4 @@
 {
-"homepage": "https://MahdiBenAmeur.github.io/Qromo_website/",
 
   "name": "vite_react_shadcn_ts",
   "private": true,
@@ -10,9 +9,8 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
+
 
   },
   "dependencies": {
