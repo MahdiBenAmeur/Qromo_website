@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Mail, ArrowRight, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
 
 interface MessageUsFormProps {
   isLanguageFrench: boolean;
@@ -32,7 +33,7 @@ const MessageUsForm: React.FC<MessageUsFormProps> = ({ isLanguageFrench }) => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -46,23 +47,38 @@ const MessageUsForm: React.FC<MessageUsFormProps> = ({ isLanguageFrench }) => {
     }
     
     setIsSubmitting(true);
-    
-    // Simulate sending the message
-    setTimeout(() => {
-      console.log('Message submitted:', { email, message });
-      
-      // Show success toast
-      toast({
-        variant: "success",
-        title: translations.success.title,
-        description: translations.success.description,
-      });
-      
-      // Reset form
-      setEmail('');
-      setMessage('');
-      setIsSubmitting(false);
-    }, 1000);
+  try {
+    await emailjs.send(
+      'service_krupu26',
+      'template_mh3iyti',
+      {
+        name: email,
+        email: email,
+        message: message,
+        title: 'Website Contact Form'
+      },
+      '7qSLKs0POlIojwfgh' // replace this line with your actual public key
+    );
+
+    toast({
+      variant: "success",
+      title: translations.success.title,
+      description: translations.success.description,
+    });
+
+    setEmail('');
+    setMessage('');
+  } catch (error) {
+    toast({
+      variant: "destructive",
+      title: "Error",
+      description: "Message not sent. Please try again later.",
+    });
+    console.error('EmailJS error:', error);
+  } finally {
+    setIsSubmitting(false);
+  }
+
   };
 
   return (
